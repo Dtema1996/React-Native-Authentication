@@ -1,11 +1,25 @@
+import firebase from 'firebase';
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import { Header } from './components/common';
+import LoginForm from './components/LoginForm';
 
 class App extends Component {
-  render () {
+  componentWIllMount() {
+    firebase.initializeApp({
+      apiKey: 'AIzaSyAi1SlR0YV7tcJ7_SD4UFnJ59VQQ7PrjU4',
+      authDomain: 'auth-396cd.firebaseapp.com',
+      databaseURL: 'https://auth-396cd.firebaseio.com',
+      projectId: 'auth-396cd',
+      storageBucket: 'auth-396cd.appspot.com',
+      messagingSenderId: '517603228155'
+    });
+  }
+  render() {
     return (
       <View>
-        <Text>An app</Text>
+        <Header headerText="Authentication" />
+        <LoginForm />
       </View>
     );
   }
